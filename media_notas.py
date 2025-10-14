@@ -1,35 +1,37 @@
-#função
-def validação(nota1: int, nota2: int, nota3:int) -> bool:
-    if nota1 >=0 or nota1 <=100 and nota2 >= 0 or nota2 <=100 and nota3 >=0 or nota3<=100:
-        print('notas válidas!')
-        return True
-    else:
-        print('notas inválidas, tente novamente!')
-    return False
+#definições
+def boas_vindas(txt):
+    print('-' * 30)
+    print(txt)
+    print('-' * 30)
 
-def media_arit(nota1: int, nota2: int, nota3: int) -> bool:
-       return (nota1 + nota2 + nota3) / 3
-def aprovado_ou_nao(nota1: int, nota2: int, nota3: int) -> bool:
-    if media >= 70:
-        print(f'A media do aluno(a) {nome} foi {media:.2f}, está aprovado! Parabéns!')
+def verifica_nota(nota1:float, nota2:float, nota3:float) -> bool:
+    if nota1 <= 100 and nota2 <= 100 and nota3 <= 100:
+        print('Notas válidas!')
         return True
     else:
-        print(f'A média do aluno(a) {nome} foi de {media:.2f}, está reprovado...')
+        print('Notas inválidas!')
         return False
 
+def media_arit(nota1:float, nota2: float, nota3:float) -> float:
+    media = (nota1 + nota2 + nota3)/ 3
+    if media >=70:
+        print(f'O aluno(a) {nome} está aprovado(a)! Parabéns!')
+        return media
+    else:
+        print(f'O aluno(a) {nome} está reprovado(a), aguarde a data da prova final!')
 
+        return media
 
-#Sitemas de notas do Suap(código principal)
-nome = input('Nome do aluno: ')
-print('-----Média de notas do suap-----')
-nota1 = float(input('digite sua primeira nota:' ))
-nota2 = float(input('digite sua segunda nota: '))
+#código principal
+boas_vindas('RESULDADO FINAL DAS TRÊS AVALIAÇÕES')
+
+nome = input('Digite seu nome completo: ')
+nota1 = float(input('Digite sua primeira nota: '))
+nota2 = float(input('Digite sua segunda nota: '))
 nota3 = float(input('Digite sua terceira nota: '))
-if validação(nota1, nota2, nota3):
-    media = (nota1 + nota2 + nota3) / 3
-aprovado_ou_nao(nota1, nota2, nota3)
 
-
+verifica_nota(nota1, nota2,nota3)
+media_arit(nota1, nota2, nota3)
 
 
 
